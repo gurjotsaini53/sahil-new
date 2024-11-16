@@ -1223,3 +1223,10 @@ form .button-area {
   top: calc(100% - 12rem);
 }
 /* scroll top ends */
+
+
+
+
+#contact-form input{
+  text-transform:lowercase;
+}

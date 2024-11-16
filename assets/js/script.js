@@ -190,17 +190,6 @@ document.onkeydown = function (e) {
     }
 }
 
-// Start of Tawk.to Live Chat
-var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-(function () {
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = 'https://embed.tawk.to/60df10bf7f4b000ac03ab6a8/1f9jlirg6';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin', '*');
-    s0.parentNode.insertBefore(s1, s0);
-})();
-// End of Tawk.to Live Chat
 
 
 /* ===== SCROLL REVEAL ANIMATION ===== */
@@ -249,3 +238,31 @@ srtop.reveal('.experience .timeline .container', { interval: 400 });
 /* SCROLL CONTACT */
 srtop.reveal('.contact .container', { delay: 400 });
 srtop.reveal('.contact .container .form-group', { delay: 400 });
+
+
+
+
+
+document.getElementById('contact-form').addEventListener('submit', function (event) {
+    // Get form fields
+    const name = document.querySelector('input[name="name"]').value.trim();
+    const email = document.querySelector('input[name="email"]').value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Email validation regex
+
+    // Check if name or email is empty
+    if (!name || !email) {
+      alert("Name and Email are mandatory fields!");
+      event.preventDefault(); // Prevent form submission
+      return;
+    }
+
+    // Validate email format
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address!");
+      event.preventDefault(); // Prevent form submission
+      return;
+    }
+
+    // If validation passes, the form can be submitted
+    alert("Form submitted successfully!");
+  });
